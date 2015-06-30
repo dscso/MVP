@@ -9,6 +9,8 @@ app.config(['$routeProvider', '$locationProvider',
     $routeProvider
       .when('/', {
         templateUrl: 'templates/index.html',
+        controller: homeCtrl,
+        controllerAs : 'homeCtrl',
         name : "Home",
       })
       .when('/login', {
@@ -22,7 +24,7 @@ app.config(['$routeProvider', '$locationProvider',
 app.factory('routeNavigation', function($route, $location) {
   var routes = [];
   angular.forEach($route.routes, function (route, path) {
-    if (route.name) {
+    if (route.name) { // if name is given show it in the menu
       routes.push({
         path: path,
         name: route.name
@@ -49,3 +51,10 @@ app.directive('navigation', function (routeNavigation) {
     };
 });
 
+var homeCtrl = ['$http', function($http){
+   var controller = this;
+   controller.vacations = [];
+    $http.get("vacations.json").success(function (data) {
+       controller.vacations = data.vacations
+    });
+}];

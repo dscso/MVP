@@ -1,1 +1,8 @@
-hallo
+<div>
+   <ul>
+      <li ng-repeat="vacation in homeCtrl.vacations">
+          {{vacation.name}} |
+          {{ vacation.from | date }}
+      </li>
+   </ul>
+</div>
