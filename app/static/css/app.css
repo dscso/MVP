@@ -1,0 +1,12 @@
+body, html {
+    height: 100%;
+    weight: 100%;
+}
+.calender-head {
+   text-align: center;
+   font-weight: bold;
+}
+.calender-away {
+    color: #FFFFFF;
+    background-color: #FF0000;
+}

@@ -53,8 +53,13 @@ app.directive('navigation', function (routeNavigation) {
 
 var homeCtrl = ['$http', function($http){
    var controller = this;
+   this.days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
    controller.vacations = [];
-    $http.get("vacations.json").success(function (data) {
-       controller.vacations = data.vacations
-    });
+   controller.members = [];
+   $http.get("members.json").success(function (data) {
+       controller.members = data.members;
+   });
+   $http.get("vacations.json").success(function (data) {
+       controller.vacations = data.vacations;
+   }); 
 }];

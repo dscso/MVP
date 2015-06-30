@@ -1,0 +1,9 @@
+{
+    "members": [{
+        "name": "John Smith",
+        "email": "john@smith.de"
+    }, {
+        "name": "Steve Miller",
+        "email": "steve@miller.google.com"
+    }]
+}
