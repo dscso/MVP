@@ -2,13 +2,13 @@
    <table style="width:100%" border=1>
        <tr>
            <td class="calender-head">Name</td>
-           <td class="calender-head" ng-repeat="day in homeCtrl.days">{{ day }}</td>
+           <td class="calender-head" ng-repeat="day in homeCtrl.dayList">{{ day.name }}</td>
        </tr>
        <tr ng-repeat="member in homeCtrl.members">
            <td>
            {{ member.name }}
            </td>
-           <td ng-repeat="day in homeCtrl.days"></td>
+           <td ng-repeat="day in homeCtrl.dayList" ng-class="{calenderaway: homeCtrl.isAway(member.name, day.timestamp) }">{{day.timestamp }}</td>
        </tr>
    </table>
    </ul>

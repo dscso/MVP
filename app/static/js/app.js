@@ -53,7 +53,15 @@ app.directive('navigation', function (routeNavigation) {
 
 var homeCtrl = ['$http', function($http){
    var controller = this;
-   this.days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+   var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+   this.dayList = []
+   days.forEach (function (val) {
+       controller.dayList.push({
+          name : val,
+          timestamp : moment().day(val).unix() * 1000
+       });
+   });
+   
    controller.vacations = [];
    controller.members = [];
    $http.get("members.json").success(function (data) {
@@ -61,5 +69,10 @@ var homeCtrl = ['$http', function($http){
    });
    $http.get("vacations.json").success(function (data) {
        controller.vacations = data.vacations;
-   }); 
+   });
+   this.isAway = function (member, timestamp) {
+      /*controller.vacations.forEach (function (obj) {
+                 
+      });*/
+   };
 }];
