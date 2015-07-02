@@ -53,9 +53,10 @@ app.directive('navigation', function (routeNavigation) {
 
 var homeCtrl = ['$http', function($http){
    var controller = this;
-   var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+   //var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+   var days = ["Mo.","Tue.","Wed.","Thu.","Fr.","Sa.","Sun."]
    this.dayList = []
-   var i = 0;
+   var i = 1;
    days.forEach (function (val) {
        controller.dayList.push({
           name : val,
@@ -75,7 +76,7 @@ var homeCtrl = ['$http', function($http){
    this.isAway = function (member, timestamp) {
       var isAway = false;
       controller.vacations.forEach (function (obj) {
-          if (obj.from < timestamp && obj.to + 1000000 > timestamp && obj.mail == member) {
+          if (obj.from < timestamp && obj.to > timestamp && obj.mail == member) {
               isAway = true;
           }
       });

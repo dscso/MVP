@@ -8,7 +8,7 @@
            <td>
            {{ member.name }}
            </td>
-           <td ng-repeat="day in homeCtrl.dayList" ng-class="{calenderaway: homeCtrl.isAway(member.email, day.timestamp) }">{{day.timestamp }}</td>
+           <td ng-repeat="day in homeCtrl.dayList" ng-class="{calenderaway: homeCtrl.isAway(member.email, day.timestamp) }"></td>
        </tr>
    </table>
    </ul>
