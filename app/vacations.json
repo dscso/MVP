@@ -1,16 +1,19 @@
 {  
-   "vacations":{  
-      "john@smith.de":{  
+   "vacations":[{
+         "mail":"john@smith.de",
          "from":1435701600000,
          "to":1439762400000
-      },
-      "steve@miller.google.com":{  
+      },{
+         "mail":"steve@miller.google.com",
          "from":1438552800000,
          "to":1440885600000
-      },
-      "john@smith.de":{  
+      },{
+         "mail":"john@smith.de",
          "from":1435708800000,
          "to":1435795200000
-      }
-   }
+      },{
+          "mail":"steve@miller.google.com",
+          "from":1435562871000,
+          "to":1435649245000
+      }]
 }

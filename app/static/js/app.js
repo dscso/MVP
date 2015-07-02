@@ -55,11 +55,13 @@ var homeCtrl = ['$http', function($http){
    var controller = this;
    var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
    this.dayList = []
+   var i = 0;
    days.forEach (function (val) {
        controller.dayList.push({
           name : val,
-          timestamp : moment().day(val).unix() * 1000
+          timestamp : moment().isoWeekday(i).unix() * 1000
        });
+   i = i + 1;
    });
    
    controller.vacations = [];
@@ -71,8 +73,12 @@ var homeCtrl = ['$http', function($http){
        controller.vacations = data.vacations;
    });
    this.isAway = function (member, timestamp) {
-      /*controller.vacations.forEach (function (obj) {
-                 
-      });*/
+      var isAway = false;
+      controller.vacations.forEach (function (obj) {
+          if (obj.from < timestamp && obj.to + 1000000 > timestamp && obj.mail == member) {
+              isAway = true;
+          }
+      });
+      return isAway;
    };
 }];
