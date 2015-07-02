@@ -14,8 +14,8 @@ app.config(['$routeProvider', '$locationProvider',
         name : "Home",
       })
       .when('/login', {
-        templateUrl: 'templates/login.html',
-        name : "Login",
+        templateUrl: 'templates/admin.html',
+        name : "Admin",
       }).otherwise({
         redirectTo: "/"
       });
@@ -51,16 +51,17 @@ app.directive('navigation', function (routeNavigation) {
     };
 });
 
-var homeCtrl = ['$http', function($http){
+var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    var controller = this;
+   this.week = 0;
    //var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-   var days = ["Mo.","Tue.","Wed.","Thu.","Fr.","Sa.","Sun."]
+   var days = ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."]
    this.dayList = []
    var i = 1;
    days.forEach (function (val) {
        controller.dayList.push({
           name : val,
-          timestamp : moment().isoWeekday(i).unix() * 1000
+          timestamp : moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(i).unix() * 1000
        });
    i = i + 1;
    });
@@ -82,4 +83,5 @@ var homeCtrl = ['$http', function($http){
       });
       return isAway;
    };
+    
 }];

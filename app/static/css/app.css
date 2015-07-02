@@ -10,3 +10,6 @@ body, html {
     color: #FFFFFF;
     background-color: #FF0000;
 }
+.setWeek {
+    text-align: right;
+}
