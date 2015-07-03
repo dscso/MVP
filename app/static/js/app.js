@@ -54,18 +54,30 @@ app.directive('navigation', function (routeNavigation) {
 var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    var controller = this;
    this.week = 0;
+   this.changeWeek = function (newWeek) {
+       console.log(newWeek);
+       controller.week = newWeek;
+       this.loadDays();
+   };
+   this.loadDays = function () {
    //var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
    var days = ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."]
    this.dayList = []
-   var i = 1;
+   var i = 0;
    days.forEach (function (val) {
        controller.dayList.push({
           name : val,
           timestamp : moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(i).unix() * 1000
        });
-   i = i + 1;
+       i = i + 1;
    });
-   
+   };
+   this.weekFrom = function () {
+       return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(1).unix() * 1000;
+   };
+   this.weekTo = function () {
+       return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(7).unix() * 1000;
+   };
    controller.vacations = [];
    controller.members = [];
    $http.get("members.json").success(function (data) {
@@ -85,3 +97,4 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    };
     
 }];
+
