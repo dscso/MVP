@@ -7,9 +7,7 @@ echo "Downloading..."
 bower install momentjs bootstrap angular-route --allow-root
 echo "Creating dirs..."
 mkdir app/static/lib/bootstrap
-mkdir app/static/lib/angularjs
-mkdir app/static/lib/angularjs/plugins
-mkdir app/static/lib/angularjs/plugins/angular-route
+mkdir -p app/static/lib/angularjs/plugins/angular-route
 mkdir app/static/lib/momentjs
 
 echo "Copying files into static/lib..."
