@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Cleanup...";
+rm -fr app/static/lib/*
+rm -fr bower_components/
+echo "Downloading..."
+bower install momentjs bootstrap angular-route --allow-root
+echo "Creating dirs..."
+mkdir app/static/lib/bootstrap
+mkdir app/static/lib/angularjs
+mkdir app/static/lib/angularjs/plugins
+mkdir app/static/lib/angularjs/plugins/angular-route
+mkdir app/static/lib/momentjs
+
+echo "Copying files into static/lib..."
+cp bower_components/angular/angular.min.js app/static/lib/angularjs/
+cp bower_components/angular-route/angular-route.min.js app/static/lib/angularjs/plugins/angular-route/
+cp bower_components/bootstrap/dist/css/bootstrap-theme.min.css app/static/lib/bootstrap/
+cp bower_components/bootstrap/dist/css/bootstrap.min.css app/static/lib/bootstrap/
+cp bower_components/momentjs/min/moment.min.js app/static/lib/momentjs/
+echo "Removing bower_components/..."
+rm -fr bower_components/
+echo "done."

@@ -1,7 +1,5 @@
 var app = angular.module('MVP', [
-  'ngRoute',
-  'pascalprecht.translate'
-
+  'ngRoute'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',
