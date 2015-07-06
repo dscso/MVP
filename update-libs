@@ -20,4 +20,6 @@ cp bower_components/bootstrap/dist/css/bootstrap.min.css app/static/lib/bootstra
 cp bower_components/momentjs/min/moment.min.js app/static/lib/momentjs/
 echo "Removing bower_components/..."
 rm -fr bower_components/
+echo "Setting permissions(755/rwxr-xr-x)..."
+chmod -R 755 .
 echo "done."
