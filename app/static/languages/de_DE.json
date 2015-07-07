@@ -2,5 +2,5 @@
    "name":"Mobiler Urlaub Planer",
    "table_lable_name":"Name",
    "table_lable_days" : ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-   "table_lable_days_mobile" : ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."]
+   "table_lable_days_mobile" : ["Mo.","Di.","Mi.","Do.","Fr.","Sa.","So."]
 }

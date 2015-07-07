@@ -93,7 +93,7 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    var i = 0;
    days.forEach (function (val) {
        controller.dayList.push({
-          name : val,
+          i : i,
           timestamp : moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(i).unix() * 1000
        });
        i = i + 1;
