@@ -5,13 +5,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <span class="navbar-brand">Mobile Vacation Planer</span>
+        <span class="navbar-brand">{{'name' | translate}}</span>
     </div>
     <div class="collapse navbar-collapse" ng-class="{in: showMobileNav}">
         <ul class="navbar-nav nav">
             <li ng-repeat="route in routes" ng-class="{active: activeRoute(route)}">
                 <a href="#{{ route.path }}">{{ route.name }}</a>
             </li>
-        </ul> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+           <li ng-repeat="lang in languages" ng-click="changeLang(lang)" ng-class="{active: isLang(lang)}"><a href>{{lang}}</a></li>
+        </ul>
     </div>
 </nav>

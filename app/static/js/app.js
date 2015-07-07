@@ -1,5 +1,7 @@
 var app = angular.module('MVP', [
-  'ngRoute'
+  'ngRoute',
+  'ngCookies',
+  'pascalprecht.translate'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',
@@ -41,14 +43,41 @@ app.directive('navigation', function (routeNavigation) {
     return {
         restrict: "E",
 	replace: true,
+        require: "ngChange",
         templateUrl: "templates/navigation.html",
-        controller: function ($scope) {
+        controllerAs: "navCtrl",
+        controller: function ($scope, $translate, $http) {
+           $http.get("static/languages/languages.json").success(function (response) {
+               $scope.languages = response.languages;
+           });
+           $scope.changeLang = function (key) {
+              $translate.use(key)
+           };
+           $scope.isLang = function (key) {
+               return $translate.use() === key;
+           };
            $scope.routes = routeNavigation.routes;
            $scope.activeRoute = routeNavigation.activeRoute;
         }
     };
 });
 
+app.config(function($translateProvider) {
+    $translateProvider.useCookieStorage();
+    $translateProvider.preferredLanguage('en_US');
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'static/languages/',
+        suffix: '.json'
+    });
+});
+app.controller('langCtrl', function ($scope, $translate, $http) {
+  $http.get("static/languages/languages.json").success(function (response) {
+    $scope.languages = response.languages;
+  });
+  $scope.changeLanguage = function (key) {
+    $translate.use(key);
+  };
+});
 var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    var controller = this;
    this.week = 0;
