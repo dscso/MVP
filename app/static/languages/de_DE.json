@@ -1,6 +1,12 @@
 {
    "name":"Mobiler Urlaub Planer",
+   "languages": {
+      "en_US": "Englisch",
+      "de_DE": "Deutsch"
+   },
    "table_lable_name":"Name",
-   "table_lable_days" : ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-   "table_lable_days_mobile" : ["Mo.","Di.","Mi.","Do.","Fr.","Sa.","So."]
+   "table_lable_days_mobile" : ["Mo.","Di.","Mi.","Do.","Fr.","Sa.","So."],
+   "admin_tab_home":"Home",
+   "admin_tab_members":"Angestellte",
+   "admin_tab_vacations":"Urlaubstage"
 }

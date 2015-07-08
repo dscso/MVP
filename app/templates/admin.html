@@ -1,3 +1,16 @@
 <div>
-   Admin 
+    <ul class="nav nav-tabs" ng-init="tab = 1">
+        <li role="presentation" ng-click="tab = 1" ng-class="{active: tab === 1}"><a href>{{'admin_tab_home' | translate}}</a></li>
+        <li role="presentation" ng-click="tab = 2" ng-class="{active: tab === 2}"><a href>{{'admin_tab_members' | translate}}</a></li>
+        <li role="presentation" ng-click="tab = 3" ng-class="{active: tab === 3}"><a href>{{'admin_tab_vacations' | translate}}</a></li>
+    </ul>
+    <div class="panel" ng-show="tab === 1">
+        home
+    </div>
+    <div class="panel" ng-show="tab === 2">
+        profiles
+    </div>
+    <div class="panel" ng-show="tab === 3">
+        vacations
+    </div>
 </div>

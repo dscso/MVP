@@ -1,6 +1,12 @@
 {
    "name":"Mobile Vacation Planer",
+   "languages": {
+      "en_US": "English",
+      "de_DE": "German"
+   },
    "table_lable_name":"Name",
-   "table_lable_days" : ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-   "table_lable_days_mobile" : ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."]
+   "table_lable_days_mobile" : ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."],
+   "admin_tab_home":"Home",
+   "admin_tab_members":"Members",
+   "admin_tab_vacations":"Vacations"
 }

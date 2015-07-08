@@ -14,7 +14,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <li ng-repeat="lang in languages" ng-click="changeLang(lang)" ng-class="{active: isLang(lang)}"><a href>{{lang}}</a></li>
+           <li ng-repeat="lang in languages" ng-click="changeLang(lang)" ng-class="{active: isLang(lang)}"><a href>{{'languages.'+lang | translate}}</a></li>
         </ul>
     </div>
 </nav>

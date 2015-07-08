@@ -13,8 +13,10 @@ app.config(['$routeProvider', '$locationProvider',
         controllerAs : 'homeCtrl',
         name : "Home",
       })
-      .when('/login', {
+      .when('/admin', {
         templateUrl: 'templates/admin.html',
+        controller: adminCtrl,
+        controllerAs: 'adminCtrl',
         name : "Admin",
       }).otherwise({
         redirectTo: "/"
@@ -125,3 +127,6 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
     
 }];
 
+var adminCtrl = function ($scope) {
+    
+};
