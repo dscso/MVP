@@ -4,6 +4,7 @@
       "en_US": "English",
       "de_DE": "German"
    },
+   "languages_dropdown_label":"Languages",
    "table_lable_name":"Name",
    "table_lable_days_mobile" : ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."],
    "admin_tab_home":"Home",

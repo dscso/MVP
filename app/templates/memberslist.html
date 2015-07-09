@@ -1,0 +1,6 @@
+<div>
+    <li class="list-group-item" ng-repeat="member in members" ng-init="member.edit = false">
+        {{member.name}} <{{member.email}}>
+    </li>
+    <li class="list-group-item"><a href data-toggle="modal" data-target="#addNewMemberDialog">[+]</a></li>
+</div>

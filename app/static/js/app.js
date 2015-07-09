@@ -2,11 +2,24 @@
 var MembersJSON = "members.json";
 var VacationsJSON = "vacations.json";
 
+// init some vars
+var membersArray = {};
+var vacationsArray = {};
+
 var app = angular.module('MVP', [
   'ngRoute',
   'ngCookies',
   'pascalprecht.translate'
 ]);
+
+app.run(['$http', function ($http) {
+   $http.get(MembersJSON).success(function (response) {
+      membersArray = response.members;
+   });
+   $http.get(VacationsJSON).success(function (response) {
+      vacationsArray = response.vacations;
+   });
+}]);
 
 app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
@@ -112,14 +125,8 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    this.weekTo = function () {
        return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(7).unix() * 1000;
    };
-   controller.vacations = [];
-   controller.members = [];
-   $http.get(MembersJSON).success(function (data) {
-       controller.members = data.members;
-   });
-   $http.get(VacationsJSON).success(function (data) {
-       controller.vacations = data.vacations;
-   });
+   controller.vacations = vacationsArray;
+   controller.members = membersArray;
    this.isAway = function (member, timestamp) {
       var isAway = false;
       controller.vacations.forEach (function (obj) {
@@ -133,9 +140,34 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
 }];
 
 var adminCtrl = function ($scope, $http) {
-   $scope.members = [];
-   $http.get(MembersJSON).success(function (response) {
-      $scope.members = response.members;
-   });
+   $scope.members = membersArray;
 };
 
+
+app.directive('memberList', function () {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "templates/memberslist.html",
+        controllerAs: "membersListCtrl",
+        controller: function ($scope, $http) {
+            $scope.members = membersArray;
+        }
+    };
+});
+
+app.directive('addNewMemberDialog', function () {
+    return {
+        restrict: "E",
+        replace: true,
+        templateUrl: "templates/addnewmember.html",
+        controllerAs: "membersDialogCtrl",
+        controller: function ($scope, $http) {
+            $scope.member = {};
+            $scope.addMember = function () {
+                membersArray.push($scope.member);
+                $scope.member = {};
+            };
+        }
+    };
+});
