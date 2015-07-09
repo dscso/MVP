@@ -1,6 +1,9 @@
 {
-    "languages": [
-        "en_US",
-        "de_DE"
-     ]
+    "languages": [{
+        "id":"en_US",
+        "name":"English"
+    },{
+        "id":"de_DE",
+        "name":"Deutsch"
+    }]
 }

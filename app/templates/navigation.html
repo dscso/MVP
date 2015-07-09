@@ -15,9 +15,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{"languages_dropdown_label" | translate }} <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe"></span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li ng-repeat="lang in languages" ng-click="changeLang(lang)" ng-class="{active: isLang(lang)}"><a href>{{'languages.'+lang | translate}}</a></li>
+                    <li ng-repeat="lang in languages" ng-click="changeLang(lang.id)" ng-class="{active: isLang(lang.id)}"><a href>{{lang.name}}</a></li>
                 </ul>
            </li>
         </ul>
