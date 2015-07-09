@@ -11,6 +11,8 @@ mkdir -p app/static/lib/angularjs/plugins/angular-route
 mkdir app/static/lib/angularjs/plugins/angular-translate
 mkdir app/static/lib/angularjs/plugins/angular-cookies/
 mkdir app/static/lib/momentjs
+mkdir app/static/lib/fonts/
+mkdir app/static/lib/jquery
 
 echo "Copying files into static/lib..."
 # angular
@@ -26,6 +28,10 @@ cp bower_components/angular-translate-storage-local/angular-translate-storage-lo
 # bootstrap
 cp bower_components/bootstrap/dist/css/bootstrap-theme.min.css app/static/lib/bootstrap/
 cp bower_components/bootstrap/dist/css/bootstrap.min.css app/static/lib/bootstrap/
+cp bower_components/bootstrap/dist/js/bootstrap.min.js app/static/lib/bootstrap/
+cp bower_components/bootstrap/fonts/* app/static/lib/fonts/
+# jquery
+cp bower_components/jquery/dist/jquery.min.js app/static/lib/jquery/
 # momentjs
 cp bower_components/momentjs/min/moment.min.js app/static/lib/momentjs/
 
