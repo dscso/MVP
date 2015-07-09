@@ -8,7 +8,14 @@
         home
     </div>
     <div class="panel" ng-show="tab === 2">
-        profiles
+        <ul>
+            <li ng-repeat="member in members">{{member.name}} <{{member.email}}></li>
+        <li><form name="addMemberForm" novalidate>
+            Name: <input type="text" name="name" ng-module="adminCtrl.memberTextfieldName" required />
+            E-Mail: <input type="email" name="email" ng-module="adminCtrl.memberTextfieldMail" required />
+            <input type="submit" name="submit" value="add" />
+        </form></ul>
+        {{addMemberForm.$valid}}
     </div>
     <div class="panel" ng-show="tab === 3">
         vacations

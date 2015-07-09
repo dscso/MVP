@@ -1,3 +1,7 @@
+// config
+var MembersJSON = "members.json";
+var VacationsJSON = "vacations.json";
+
 var app = angular.module('MVP', [
   'ngRoute',
   'ngCookies',
@@ -73,6 +77,7 @@ app.config(function($translateProvider) {
     });
 });
 app.controller('langCtrl', function ($scope, $translate, $http) {
+  $scope.languages = [];
   $http.get("static/languages/languages.json").success(function (response) {
     $scope.languages = response.languages;
   });
@@ -109,10 +114,10 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
    };
    controller.vacations = [];
    controller.members = [];
-   $http.get("members.json").success(function (data) {
+   $http.get(MembersJSON).success(function (data) {
        controller.members = data.members;
    });
-   $http.get("vacations.json").success(function (data) {
+   $http.get(VacationsJSON).success(function (data) {
        controller.vacations = data.vacations;
    });
    this.isAway = function (member, timestamp) {
@@ -127,6 +132,10 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
     
 }];
 
-var adminCtrl = function ($scope) {
-    
+var adminCtrl = function ($scope, $http) {
+   $scope.members = [];
+   $http.get(MembersJSON).success(function (response) {
+      $scope.members = response.members;
+   });
 };
+
