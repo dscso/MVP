@@ -9,10 +9,10 @@
         <form ng-submit="addMemberForm.$valid && addMember()" name="addMemberForm" novalidate>
           <div class="modal-body">
             <p>
-              <label>Name: </label><input type="text" class="form-control" ng-model="member.name" required>
+              <label>Name: </label><input type="text" class="form-control" placeholder="John Smith" ng-model="member.name" required>
             </p>
             <p>
-              <label>Email: </label><input type="email" class="form-control" ng-model="member.email" required>
+              <label>Email: </label><input type="email" class="form-control" placeholder="you@domain.tld" ng-model="member.email" required>
             </p>
           </div>
           <div class="modal-footer">
@@ -21,8 +21,6 @@
           </div>
          </form>
       </div>
-      
     </div>
   </div>
-  
-  </div>
+</div>

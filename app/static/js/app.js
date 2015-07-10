@@ -107,8 +107,6 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
        this.loadDays();
    };
    this.loadDays = function () {
-   //var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-   var days = ["Mo.","Tu.","We.","Th.","Fr.","Sa.","Su."]
    this.dayList = []
    var i = 0;
    days.forEach (function (val) {
