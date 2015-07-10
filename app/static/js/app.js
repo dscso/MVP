@@ -121,7 +121,7 @@ var homeCtrl = ['$routeParams', '$http', function($routeParams, $http){
        return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(1).unix() * 1000;
    };
    this.weekTo = function () {
-       return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(7).unix() * 1000;
+       return moment().isoWeek(moment().isoWeek() + controller.week).isoWeekday(daysNumber).unix() * 1000;
    };
    controller.vacations = vacationsArray;
    controller.members = membersArray;
