@@ -1,6 +1,7 @@
 body, html {
     height: 100%;
-    weight: 100%;
+    width: 100%;
+    position: fixed;
 }
 .calender-head {
    text-align: center;

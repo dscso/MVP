@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="static/lib/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="static/lib/bootstrap/bootstrap-theme.min.css">
   </head>
-  <body ng-app='MVP'>
+  <body ng-app='MVP' class="body">
       <navigation></navigation>
       <div ng-view></div>
       
@@ -34,5 +34,6 @@
       <script src="static/lib/bootstrap/bootstrap.min.js"></script>
       <script src="static/js/settings.js"></script>
       <script src="static/js/app.js"></script>
+      <script>$(".body").on("touchmove", false);</script>
   </body>
 </html>
