@@ -25,7 +25,7 @@ app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'templates/index.html',
+        templateUrl: 'templates/home.html',
         controller: homeCtrl,
         controllerAs : 'homeCtrl',
         name : "Home",
