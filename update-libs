@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Cleanup...";
 rm -fr app/static/lib/*
